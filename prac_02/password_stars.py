@@ -5,11 +5,11 @@ PASSWORD_LENGTH = 4
 
 def main():
     password = get_password()
-    print_stars(password)
+    print_stars(len(password))
 
 
-def print_stars(password):
-    print("*" * len(password))
+def print_stars(number):
+    print("*" * number)
 
 
 def get_password():
