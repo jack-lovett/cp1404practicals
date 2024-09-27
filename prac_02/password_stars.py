@@ -20,4 +20,5 @@ def get_password():
     return password
 
 
-main()
+if __name__ == '__main__':
+    main()
