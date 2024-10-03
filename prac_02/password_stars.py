@@ -6,7 +6,7 @@ PASSWORD_LENGTH = 4
 
 def main():
     """Password length main function"""
-    password = get_password(PASSWORD_LENGTH)
+    password = get_valid_password(PASSWORD_LENGTH)
     print_stars(len(password))
 
 
@@ -15,7 +15,7 @@ def print_stars(number):
     print("*" * number)
 
 
-def get_password(length):
+def get_valid_password(length):
     """Get valid password"""
     password = input("Enter a password: ")
     while len(password) < length:
