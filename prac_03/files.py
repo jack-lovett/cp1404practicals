@@ -18,9 +18,18 @@ in_file.close()
 
 # 3.
 with open("numbers.txt", 'r') as file:
-    number_total = 0
+    number_sum = 0
     for i, line in enumerate(file):
         if i == 2:
             break
-        number_total += int(line)
-print(number_total)
+        number_sum += int(line)
+print(number_sum)
+
+# 4.
+with open("numbers.txt", 'r') as file:
+    number_sum = 0
+    numbers = file.read()
+    number_list = numbers.split('\n')
+    for number in number_list:
+        number_sum += int(number)
+print(number_sum)
