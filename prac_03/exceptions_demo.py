@@ -7,7 +7,7 @@ Answer the following questions:
 """
 
 # Question Answers
-# 1. When the input is not a number
+# 1. When the input is not an integer
 # 2. When the denominator is 0
 # 3. YES, error checking
 
