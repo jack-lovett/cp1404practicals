@@ -1,9 +1,4 @@
-"""
-CP1404 Practical
-Quick picks generator
-"""
-
-import random
+"""Quick picks generator"""
 
 MINIMUM = 1
 MAXIMUM = 45
