@@ -5,6 +5,7 @@ Estimated completion time 10 minutes
 
 
 def main():
+    """Main function for email name extractor."""
     email_to_name = {}
 
     email = input("Email: ").strip()
@@ -22,7 +23,7 @@ def main():
 
 
 def extract_name_from_email(email):
-    """Extracts a name from an email"""
+    """Extracts a name from an email."""
     username = email.split("@")[0]
     parts = username.split(".")
     name = " ".join(parts)
