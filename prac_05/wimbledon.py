@@ -6,16 +6,17 @@ import csv
 
 
 def main():
+    """Main function for Wimbledon data reader."""
     data = read_wimbledon_data("wimbledon.csv")
 
     # Process the champions
-    champions = process_champion_to_wins(data)
+    champions = get_champions_to_wins(data)
     print("Wimbledon Champions:")
     for champion, wins in champions.items():
         print(f"{champion} {wins}")
 
     # Process the countries
-    countries = process_countries(data)
+    countries = get_countries(data)
     sorted_countries = sorted(countries)
     print(f"These {len(sorted_countries)} countries have won Wimbledon:")
     print(", ".join(sorted_countries))
@@ -32,8 +33,8 @@ def read_wimbledon_data(in_file):
     return data
 
 
-def process_champion_to_wins(data):
-    """Return a dictionary of champions and their win counts"""
+def get_champions_to_wins(data):
+    """Return a dictionary of champions and their win counts."""
     champion_to_wins = {}
     for row in data:
         champion = row[2]
@@ -43,8 +44,8 @@ def process_champion_to_wins(data):
     return champion_to_wins
 
 
-def process_countries(data):
-    """Return a set of countries that have won Wimbledon"""
+def get_countries(data):
+    """Return a set of countries that have won Wimbledon."""
     countries = set()
     for row in data:
         countries.add(row[3])
