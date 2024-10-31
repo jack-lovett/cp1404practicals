@@ -4,3 +4,16 @@ CP1404 Practical - Programming Language
 Start time: 9:18am
 End time:
 """
+
+
+class ProgrammingLanguage:
+    def __init__(self, name, typing, reflection, year):
+        """Create ProgrammingLanguage object."""
+        self.name = name
+        self.typing = typing
+        self.reflection = reflection
+        self.year = year
+
+    def is_dynamic(self):
+        """Return whether language is dynamically typed."""
+        return self.typing == "Dynamic"
