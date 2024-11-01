@@ -2,10 +2,12 @@
 CP1404 Practical - Guitar
 
 Start time: 9:51am
-End time:
+End time: 10:24am
+Completion time: 33 minutes
 """
 
 CURRENT_YEAR = 2024
+
 
 class Guitar:
     def __init__(self, name="", year=0, cost=0):

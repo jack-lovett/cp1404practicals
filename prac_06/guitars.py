@@ -1,9 +1,12 @@
 """
 CP1404 Practical - Guitars
 
+Estimated time: 30 minutes
 Start time: 9:51am
-End time:
+End time: 10:24am
+Completion time: 33 minutes
 """
+
 from prac_06.guitar import Guitar
 
 print("My guitars!")
