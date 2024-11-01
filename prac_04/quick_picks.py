@@ -1,4 +1,5 @@
 """Quick picks generator"""
+import random
 
 MINIMUM = 1
 MAXIMUM = 45
