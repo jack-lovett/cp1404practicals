@@ -1,8 +1,10 @@
 """
 CP1404 Practical - Guitars
 
+Estimated time: 20 minutes
 Start time: 9:51am
-End time:
+End time: 10:14am
+Completion time: 23 minutes
 """
 from prac_06.guitar import Guitar
 
