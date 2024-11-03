@@ -9,6 +9,7 @@ Completion time: 23 minutes
 
 CURRENT_YEAR = 2024
 
+
 class Guitar:
     def __init__(self, name="", year=0, cost=0):
         self.name = name
