@@ -16,7 +16,7 @@ class Project:
     def __init__(self, name, start_date, priority, cost_estimate, completion_percentage):
         """Construct project class."""
         self.name = name
-        self.start_date = datetime.datetime.strptime(start_date, "%d/%n/%Y").date()
+        self.start_date = datetime.datetime.strptime(start_date, "%d/%m/%Y").date()
         self.priority = int(priority)
         self.cost_estimate = float(cost_estimate)
         self.completion_percentage = int(completion_percentage)
@@ -30,3 +30,6 @@ class Project:
 
     def is_complete(self):
         return self.completion_percentage == 100
+
+    def get_start_date(self):
+        return self.start_date
