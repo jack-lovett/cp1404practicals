@@ -15,7 +15,7 @@ def main():
     while name != "":
         year = int(input("Year: "))
         cost = float(input("Cost: $"))
-        guitars.append(Guitar(name=name, year=year, cost=cost))
+        guitars.append(Guitar(name, year, cost))
         print(f"{name} ({year}) : ${cost:.2f} added.\n")
         name = input("Name: ")
     guitars.sort()
