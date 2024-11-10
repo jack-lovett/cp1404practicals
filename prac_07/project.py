@@ -33,3 +33,9 @@ class Project:
 
     def get_start_date(self):
         return self.start_date
+
+    def update_project(self, completion_percentage=None, priority=None):
+        if completion_percentage is not None:
+            self.completion_percentage = int(completion_percentage)
+        if priority is not None:
+            self.priority = int(priority)
