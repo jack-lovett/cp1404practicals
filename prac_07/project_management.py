@@ -36,6 +36,10 @@ def main():
             print("Invalid choice")
         display_menu()
         choice = input(">>> ").upper()
+    save_choice = input(f"Would you like to save to {TXT_FILE}? (Y/N): ").upper()
+    if save_choice == "Y":
+        save_projects(projects)
+    print("Thank you for using Pythonic Project Management.")
 
 
 def display_menu():
