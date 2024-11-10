@@ -7,6 +7,7 @@ End time:
 Estimated completion time: 1 hour
 Actual completion time:
 """
+import datetime
 
 
 class Project:
@@ -15,10 +16,14 @@ class Project:
     def __init__(self, name, start_date, priority, cost_estimate, completion_percentage):
         """Construct project class."""
         self.name = name
-        self.start_date = start_date
-        self.priority = priority
-        self.cost_estimate = cost_estimate
-        self.completion_percentage = completion_percentage
+        self.start_date = datetime.datetime.strptime(start_date, "%d/%n/%Y").date()
+        self.priority = int(priority)
+        self.cost_estimate = float(cost_estimate)
+        self.completion_percentage = int(completion_percentage)
+
+    def __str__(self):
+        return (f"{self.name}, start: {self.start_date}, priority {self.priority}, "
+                f"estimate: ${self.cost_estimate:,.2f}, completion: {self.completion_percentage}%")
 
     def __lt__(self, other):
         return self.priority < other.priority
