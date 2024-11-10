@@ -7,6 +7,7 @@ End time:
 Estimated completion time: 1 hour
 Actual completion time:
 """
+from project import Project
 
 TXT_FILE = "projects.txt"
 
@@ -14,13 +15,12 @@ TXT_FILE = "projects.txt"
 def main():
     """Pythonic Project Manager main function."""
     print("Welcome to Pythonic Project Management")
-    # load_projects()
+    projects = load_projects()
     display_menu()
     choice = input(">>> ").upper()
     while choice != "Q":
         if choice == "L":
-            # load_projects
-            pass
+            projects = load_projects()
         elif choice == "S":
             # save_projects
             pass
@@ -50,6 +50,17 @@ def display_menu():
           "- (A)dd new project"
           "- (U)date project"
           "- (Q)uit")
+
+
+def load_projects(in_file=TXT_FILE):
+    """Load projects from a file."""
+    projects = []
+    with open(in_file, "r") as file:
+        file.readline()  # Skip header row
+        for line in file:
+            name, start_date, priority, cost_estimate, completion_percentage = line.strip().split('\t')
+            projects.append(Project(name, start_date, priority, cost_estimate, completion_percentage))
+    return projects
 
 
 if __name__ == "__main__":
