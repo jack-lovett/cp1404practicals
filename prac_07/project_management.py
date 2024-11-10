@@ -2,10 +2,8 @@
 CP1404 Practical
 Project Management Program
 
-Start time: 10:30am
-End time:
 Estimated completion time: 1 hour
-Actual completion time:
+Actual completion time: 1 hour 20 minutes
 """
 import datetime
 from operator import attrgetter
@@ -41,7 +39,7 @@ def main():
 
 
 def display_menu():
-    """Display menu."""
+    """Display the main menu options."""
     print("""- (L)oad projects
 - (S)ave projects
 - (D)isplay projects
@@ -64,9 +62,10 @@ def load_projects(in_file=TXT_FILE):
 
 
 def save_projects(projects, out_file=TXT_FILE):
+    """Save projects to a file."""
     with open(out_file, "w", encoding="utf-8") as file:
         # Write header row
-        file.write("Name\tStart Dsdate\tPriority\tCost Estimate\tCompletion Percentage\n")
+        file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
         for project in projects:
             file.write(
                 f"{project.name}\t{project.get_start_date().strftime('%d/%m/%Y')}\t"
@@ -76,6 +75,7 @@ def save_projects(projects, out_file=TXT_FILE):
 
 
 def display_projects(projects):
+    """Display incomplete and complete projects."""
     complete_projects = [project for project in projects if project.is_complete()]
     incomplete_projects = [project for project in projects if not project.is_complete()]
 
@@ -92,10 +92,12 @@ def display_projects(projects):
 
 
 def is_project_newer(project, date):
+    """Check if a project is newer than a given date."""
     return project.start_date > date
 
 
 def filter_projects_by_date(projects):
+    """Filter and display projects starting after a given date."""
     date_string = input("Show projects that start after date (dd/mm/yy): ")
     try:
         date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
@@ -113,6 +115,7 @@ def filter_projects_by_date(projects):
 
 
 def add_new_project(projects):
+    """Add a new project to the list."""
     name = input("Name: ")
     start_date = input("Start date (dd/mm/yy): ")
     priority = input("Priority: ")
@@ -122,6 +125,7 @@ def add_new_project(projects):
 
 
 def update_project(projects):
+    """Update an existing project's details."""
     for i, project in enumerate(projects):
         print(f"{i} {project}")
 
