@@ -38,18 +38,19 @@ def main():
             pass
         else:
             print("Invalid choice")
+        display_menu()
         choice = input(">>> ").upper()
 
 
 def display_menu():
     """Display menu."""
-    print("- (L)oad projects"
-          "- (S)ave projects"
-          "- (D)isplay projects"
-          "- (F)ilter projects by date"
-          "- (A)dd new project"
-          "- (U)date project"
-          "- (Q)uit")
+    print("""- (L)oad projects
+- (S)ave projects
+- (D)isplay projects
+- (F)ilter projects by date
+- (A)dd new project
+- (U)pdate project
+- (Q)uit""")
 
 
 def load_projects(in_file=TXT_FILE):
@@ -60,6 +61,7 @@ def load_projects(in_file=TXT_FILE):
         for line in file:
             name, start_date, priority, cost_estimate, completion_percentage = line.strip().split('\t')
             projects.append(Project(name, start_date, priority, cost_estimate, completion_percentage))
+    print(f"Loaded {len(projects)} projects from {in_file}")
     return projects
 
 
