@@ -31,8 +31,7 @@ def main():
         elif choice == "F":
             filter_projects_by_date(projects)
         elif choice == "A":
-            # add
-            pass
+            add_new_project(projects)
         elif choice == "U":
             # update
             pass
@@ -71,7 +70,7 @@ def save_projects(projects, out_file=TXT_FILE):
         file.write("Name\tStart Dsdate\tPriority\tCost Estimate\tCompletion Percentage\n")
         for project in projects:
             file.write(
-                f"{project.name}\t{project.start_date}\t"
+                f"{project.name}\t{project.get_start_date().strftime('%d/%m/%Y')}\t"
                 f"{project.priority}\t{project.cost_estimate}\t"
                 f"{project.completion_percentage}\n"
             )
@@ -112,6 +111,15 @@ def filter_projects_by_date(projects):
             print(project)
     else:
         print(f"No projects found after {date_string}.")
+
+
+def add_new_project(projects):
+    name = input("Name: ")
+    start_date = input("Start date (dd/mm/yy): ")
+    priority = input("Priority: ")
+    cost_estimate = input("Cost estimate: $")
+    percent_complete = input("Percent complete: ")
+    projects.append(Project(name, start_date, priority, cost_estimate, percent_complete))
 
 
 if __name__ == "__main__":
