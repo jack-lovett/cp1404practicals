@@ -7,6 +7,8 @@ End time:
 Estimated completion time: 1 hour
 Actual completion time:
 """
+from html.parser import incomplete
+
 from project import Project
 
 TXT_FILE = "projects.txt"
@@ -24,8 +26,7 @@ def main():
         elif choice == "S":
             save_projects(projects)
         elif choice == "D":
-            # display_projects
-            pass
+            display_projects(projects)
         elif choice == "F":
             # filter
             pass
@@ -72,6 +73,22 @@ def save_projects(projects, out_file=TXT_FILE):
                 f"{project.priority}\t{project.cost_estimate}\t"
                 f"{project.completion_percentage}\n"
             )
+
+
+def display_projects(projects):
+    complete_projects = [project for project in projects if project.is_complete()]
+    incomplete_projects = [project for project in projects if not project.is_complete()]
+
+    complete_projects.sort()
+    incomplete_projects.sort()
+
+    print("Incomplete projects:")
+    for project in incomplete_projects:
+        print(f"  {project}")
+
+    print("Completed projects:")
+    for project in complete_projects:
+        print(f"  {project}")
 
 
 if __name__ == "__main__":
