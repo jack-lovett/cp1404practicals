@@ -7,7 +7,8 @@ End time:
 Estimated completion time: 1 hour
 Actual completion time:
 """
-from html.parser import incomplete
+import datetime
+from operator import attrgetter
 
 from project import Project
 
@@ -28,8 +29,7 @@ def main():
         elif choice == "D":
             display_projects(projects)
         elif choice == "F":
-            # filter
-            pass
+            filter_projects_by_date(projects)
         elif choice == "A":
             # add
             pass
@@ -89,6 +89,27 @@ def display_projects(projects):
     print("Completed projects:")
     for project in complete_projects:
         print(f"  {project}")
+
+
+def is_project_newer(project, date):
+    return project.start_date > date
+
+
+def filter_projects_by_date(projects):
+    date_string = input("Show projects that start after date (dd/mm/yy): ")
+    try:
+        date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+    except ValueError:
+        print("Invalid date format. Please use dd/mm/yyyy.")
+        return
+
+    filtered_projects = [p for p in projects if is_project_newer(p, date)]
+    filtered_projects.sort(key=attrgetter('start_date'))
+    if filtered_projects:
+        for project in filtered_projects:
+            print(project)
+    else:
+        print(f"No projects found after {date_string}.")
 
 
 if __name__ == "__main__":
