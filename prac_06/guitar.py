@@ -1,9 +1,10 @@
 """
 CP1404 Practical - Guitar
 
+Estimated time: 20 minutes
 Start time: 9:51am
-End time: 10:24am
-Completion time: 33 minutes
+End time: 10:14am
+Completion time: 23 minutes
 """
 
 CURRENT_YEAR = 2024

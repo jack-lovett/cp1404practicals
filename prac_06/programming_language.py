@@ -1,6 +1,7 @@
 """
 CP1404 Practical - Programming Language
 
+Estimated time: 20 minutes
 Start time: 9:18am
 End time:   9:35am
 Completion time: 17 minutes
