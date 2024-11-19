@@ -1,0 +1,30 @@
+BoxLayout:
+    orientation: 'vertical'
+
+    BoxLayout:
+        orientation: 'horizontal'
+
+        Button:
+            text: "Up"
+            on_press: app.handle_increment(input_miles.text, 1)
+            background_color: (0.3, 0.3, 0.3, 1)
+            color: (1, 1, 1, 1)
+
+        TextInput:
+            id: input_miles
+            text: "0"
+            on_text: app.handle_conversion(self.text)
+            background_color: (1, 1, 1, 1)
+            foreground_color: (0, 0, 0, 1)
+
+        Button:
+            text: "Down"
+            on_press: app.handle_increment(input_miles.text, -1)
+            background_color: (0.3, 0.3, 0.3, 1)
+            color: (1, 1, 1, 1)
+
+    Label:
+        text: app.output_km
+        font_size: 32
+        color: (1, 1, 0, 1)
+        background_color: (0, 0, 0, 1)
