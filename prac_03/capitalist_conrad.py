@@ -21,7 +21,7 @@ FILENAME = "output.txt"
 price = INITIAL_PRICE
 number_of_days = 1
 
-out_file = open(FILENAME, 'w')
+out_file = open(FILENAME, "w")
 
 print(f"Starting price: ${price:,.2f}", file=out_file)
 while MIN_PRICE <= price <= MAX_PRICE:
