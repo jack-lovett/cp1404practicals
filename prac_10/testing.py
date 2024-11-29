@@ -9,7 +9,8 @@ from prac_06.car import Car
 
 def repeat_string(s, n):
     """Repeat string s, n times, with spaces in between."""
-    return s * n
+
+    return " ".join([s] * n)
 
 
 def is_long_word(word, length=5):
@@ -19,7 +20,7 @@ def is_long_word(word, length=5):
     False
     >>> is_long_word("supercalifrag")
     True
-    >>> is_long_word("Python", 6)
+    >>> is_long_word("Python", 5)
     True
     """
     return len(word) > length
@@ -38,31 +39,37 @@ def run_tests():
     # assert test with custom message,
     # used to see if Car's init method sets the odometer correctly
     # this should pass (no output)
-    car = Car()
+    car = Car("Hire 1")
     assert car._odometer == 0, "Car does not set odometer correctly"
 
-    # TODO: 2. write assert statements to show if Car sets the fuel correctly
-    # Note that Car's __init__ function sets the fuel in one of two ways:
-    # using the value passed in or the default
-    # You should test both of these
-    car = Car(fuel=10)
+    # used to see if Car's init method sets the fuel correctly
+    # this should pass (no output)
+    assert car.fuel == 0, "Car does not set fuel correctly"
+
+    # used to see if Car's fuel is passed in correctly
+    # this should pass (no output)
+    car = Car("Hire 2", fuel=10)
+    assert car.fuel == 10, "Car does not set fuel correctly"
+
+
+def phrase_sentence(phrase):
+    """
+    Format a phrase with a captial letter and period at the end.
+
+    >>> phrase_sentence("hello")
+    Hello.
+    >>> phrase_sentence("hi, this is a test")
+    Hi, this is a test.
+    >>> phrase_sentence("Woah this is really cool.")
+    Woah this is really cool.
+    """
+    formatted = phrase[0].upper() + phrase[1:]
+    if not formatted.endswith("."):
+        formatted += "."
+    return formatted
 
 
 run_tests()
 
-# TODO: 3. Uncomment the following line and run the doctests
 # (PyCharm may see your >>> doctest comments and run doctests anyway.)
-# doctest.testmod()
-
-# TODO: 4. Fix the failing is_long_word function
-# (Don't change the tests, change the function!)
-
-# TODO: 5. Write and test a function to format a phrase as a sentence,
-# starting with a capital and ending with a single full stop.
-# Important: start with a function header and just use pass as the body
-# then add doctests for 3 tests:
-#   'hello' -> 'Hello.'
-#   'It is an ex parrot.' -> 'It is an ex parrot.'
-# and one more that you decide is a useful test.
-# Run your doctests and watch the tests fail.
-# Then write the body of the function so that the tests pass.
+doctest.testmod()
